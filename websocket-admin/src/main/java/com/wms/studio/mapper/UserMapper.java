@@ -22,7 +22,7 @@ import com.wms.studio.mybatis.SimpleSqlSessionTemplate;
  * @date 2015年5月19日-上午8:41:28
  * @version 1.0
  */
-public interface UserMapper extends SimpleSqlSessionTemplate {
+public interface UserMapper extends SimpleSqlSessionTemplate<User,String> {
 
 	User findUserById(String id);
 

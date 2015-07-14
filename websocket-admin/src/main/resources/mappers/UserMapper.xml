@@ -5,15 +5,20 @@
 
 	<cache></cache>
 
-	<select resultType="User" parameterType="string" id="findUserById"> select *
-		from `user` where id = #{id} </select>
-	<select resultType="User" parameterType="string" id="findUserByEmail"> select *
-		from `user` where email = #{email} </select>
+	<select resultType="User" parameterType="string" id="findUserById">
+		select * from `user` where id = #{id}
+	</select>
+	<select resultType="User" parameterType="string" id="findUserByEmail">
+	select *
+		from `user` 
+			where 
+				email = #{email}
+	</select>
 	<insert id="addUser" parameterType="User" keyProperty="id">
 		insert
-		into user
-		(id,name,password,email,register_time,disable,salt,role,disable_reason)
-		values
-		(#{id},#{name},#{password},#{email},#{register_time},#{disable},#{salt},#{role},#{disable_reason})
+			into user
+			(id,name,password,email,register_time,disable,salt,role,disable_reason)
+				values
+					(#{id},#{name},#{password},#{email},#{register_time},#{disable},#{salt},#{role},#{disable_reason})
 	</insert>
 </mapper>

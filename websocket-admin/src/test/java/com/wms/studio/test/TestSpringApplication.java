@@ -44,7 +44,7 @@ public class TestSpringApplication {
 	public void test() {
 		User user = new User("560130911", "test", "test", "test", new Date(),
 				false, "test", UserRole.用户, UserDisableReason.正常);
-		//userMapper.addUser(user);
-		User t = userMapper.findUserById("560130911");
+		userMapper.addUser(user);
+		//User t = userMapper.findUserById("560130911");
 	}
 }

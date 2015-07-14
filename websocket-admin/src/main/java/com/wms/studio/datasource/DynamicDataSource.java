@@ -12,22 +12,21 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.wms.studio.mybatis;
+package com.wms.studio.datasource;
 
-import java.io.Serializable;
+import org.springframework.jdbc.datasource.lookup.AbstractRoutingDataSource;
 
 /**
  * @author WMS
- * @date 2015年5月20日-上午10:55:45
+ * @date 2015年6月2日-下午4:54:06
  * @version 1.0
  */
-public interface SimpleSqlSessionTemplate<T,ID extends Serializable> {
+public class DynamicDataSource extends AbstractRoutingDataSource {
 
-	T findById(ID id);
-	
-	void save(T entity);
-	
-	void delete(T entity);
-	
-	void deleteById(ID id);
+	@Override
+	protected Object determineCurrentLookupKey() {
+
+		return DBContextHolder.getDBType();
+	}
+
 }

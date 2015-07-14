@@ -18,6 +18,8 @@ import java.net.URL;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.wms.studio.utils.utils.Encodes;
+
 /**
  * @author WMS
  * @date 2015年5月19日-上午9:41:58
@@ -25,15 +27,15 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class FileUtils {
 
-	public static String getCleanFilePath(String path){
-		if(StringUtils.isNotBlank(path)){
-			return path.replaceAll("%20", " ");
+	public static String getCleanFilePath(String path) {
+		if (StringUtils.isNotBlank(path)) {
+			return Encodes.urlDecode(path);
 		}
 		return null;
 	}
-	
-	public static String getCleanFilePath(URL url){
-		if(url==null){
+
+	public static String getCleanFilePath(URL url) {
+		if (url == null) {
 			return null;
 		}
 		return getCleanFilePath(url.getFile());
